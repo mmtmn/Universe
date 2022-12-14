@@ -72,9 +72,9 @@ universe.display_universe_data()
 from vpython import sphere, vector, color
 
 # Create the particles
-electron = sphere(pos=vector(*universe.electron.position), radius=0.5, color=color.red)
-proton = sphere(pos=vector(*universe.proton.position), radius=0.5, color=color.blue)
-neutron = sphere(pos=vector(*universe.neutron.position), radius=0.5, color=color.green)
+electron = sphere(pos=vector(*universe.electron.position), radius=0.0000000000001, color=color.red)
+proton = sphere(pos=vector(*universe.proton.position), radius=0.00000000000087, color=color.blue)
+neutron = sphere(pos=vector(*universe.neutron.position), radius=0.00000000000115, color=color.green)
 
 import time
 
