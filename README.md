@@ -13,3 +13,7 @@ Here are a few ways that this code could be improved:
 
 
    4. The code does not include any error-checking or validation of the input data. For example, if a user passes a negative value for the distance between two particles to the gravity or electromagnetism functions, the code will still calculate the force, but the result will not be physically meaningful. To prevent this, the code could include checks to ensure that the input data is valid, and raise an error if the data is not valid. This would make the code more robust and prevent it from producing incorrect results.
+
+*Update Universe v2*
+
+In this version of the code, I have defined a Universe class that contains the properties and laws of the universe. I have also defined a Particle class that represents the fundamental particles of the universe. I have then created an instance of the Universe class and printed its properties to verify that it has been created correctly.
