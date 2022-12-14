@@ -1,5 +1,3 @@
-import math
-
 class Universe:
     def __init__(self):
         # Define the constants
@@ -21,6 +19,23 @@ class Universe:
             raise ValueError('The distance between the particles must be positive')
         return (1/(4*math.pi*8.85e-12)) * (q1*q2) / (r**2)
 
+    def space_time(self, m1, m2, r):
+        G = self.G
+        c = self.c
+        return (1/G) * ((2*math.pi*G*m1*m2)/(c**2)) * math.log(r)
+    
+    def display_universe_data(self):
+        print("Universe Constants:")
+        print("G:", self.G)
+        print("c:", self.c)
+        print("\nFundamental Particles:")
+        print("electron:", self.electron.__dict__)
+        print("proton:", self.proton.__dict__)
+        print("neutron:", self.neutron.__dict__)
+        print("\nInteraction Functions:")
+        print("Gravity:", self.gravity)
+        print("Electromagnetism:", self.electromagnetism)
+        print("Space-Time:", self.space_time)
 
 class Particle:
     def __init__(self, mass, charge):
@@ -31,5 +46,8 @@ class Particle:
 # Create the universe
 universe = Universe()
 
+# Display the universe data
+universe.display_universe_data()
+
 # Display the universe
-print(universe.__dict__)
+#print(universe.__dict__)
