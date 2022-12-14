@@ -1,29 +1,35 @@
-import os
 import math
 
+class Universe:
+    def __init__(self):
+        # Define the constants
+        self.G = 6.67e-11
+        self.c = 2.998e8
+
+        # Define fundamental particles
+        self.electron = Particle(9.109e-31, -1.602e-19)
+        self.proton = Particle(1.673e-27, 1.602e-19)
+        self.neutron = Particle(1.675e-27, 0)
+
+    def gravity(self, m1, m2, r):
+        if r <= 0:
+            raise ValueError('The distance between the particles must be positive')
+        return self.G * ((m1 * m2) / (r ** 2))
+
+    def electromagnetism(self, q1, q2, r):
+        if r <= 0:
+            raise ValueError('The distance between the particles must be positive')
+        return (1/(4*math.pi*8.85e-12)) * (q1*q2) / (r**2)
+
+
+class Particle:
+    def __init__(self, mass, charge):
+        self.mass = mass
+        self.charge = charge
+
+
 # Create the universe
-
-# Define the constants
-G = 6.67e-11
-c = 2.998e8
-
-# Define fundamental particles
-electron = {'mass': 9.109e-31, 'charge': -1.602e-19}
-proton = {'mass': 1.673e-27, 'charge': 1.602e-19}
-neutron = {'mass': 1.675e-27, 'charge': 0}
-
-# Define the laws of physics
-def gravity(m1, m2, r):
-    return G * ((m1 * m2) / (r ** 2))
-
-def electromagnetism(q1, q2, r):
-    return (1/(4*math.pi*8.85e-12)) * (q1*q2) / (r**2)
-
-# Create the universe
-universe = {}
-universe['constants'] = {'G': G, 'c': c}
-universe['fundamental_particles'] = [electron, proton, neutron]
-universe['laws'] = {'gravity': gravity, 'electromagnetism': electromagnetism}
+universe = Universe()
 
 # Display the universe
-print(universe)
+print(universe.__dict__)
