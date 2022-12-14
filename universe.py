@@ -45,9 +45,28 @@ class Universe:
         print("neutron:", self.neutron.position)
 
     def update_particles_positions(self, time):
-        self.electron.update_position(time)
-        self.proton.update_position(time)
-        self.neutron.update_position(time)
+        # Calculate the distance between particles
+        r_ep = self.distance(self.electron.position, self.proton.position)
+        r_en = self.distance(self.electron.position, self.neutron.position)
+        r_pn = self.distance(self.proton.position, self.neutron.position)
+
+        # Calculate the gravitational forces between particles
+        F_ep = self.gravity(self.electron.mass, self.proton.mass, r_ep)
+        F_en = self.gravity(self.electron.mass, self.neutron.mass, r_en)
+        F_pn = self.gravity(self.proton.mass, self.neutron.mass, r_pn)
+        
+        # Update particles positions
+        self.electron.update_position(time, F_ep, F_en)
+        self.proton.update_position(time, F_ep, F_pn)
+        self.neutron.update_position(time, F_en, F_pn)
+
+    @staticmethod
+    def distance(pos1, pos2):
+        """Calculates the distance between two 3D points"""
+        x1, y1, z1 = pos1
+        x2, y2, z2 = pos2
+
+        return math.sqrt((x2 - x1)**2 + (y2 - y1)**2 + (z2 - z1)**2)
 
 class Particle:
     def __init__(self, mass, charge, position, velocity=(0,0,0)):
@@ -56,10 +75,11 @@ class Particle:
         self.position = position
         self.velocity = velocity
 
-    def update_position(self,time):
-        x = self.position[0] + (time * self.velocity[0])
-        y = self.position[1] + (time * self.velocity[1])
-        z = self.position[2] + (time * self.velocity[2])
+    def update_position(self, time, F_1, F_2):
+        """Updates the particle's position based on the forces acting on it"""
+        x = self.position[0] + (time * self.velocity[0]) + (0.5 * time ** 2 * (F_1 + F_2) / self.mass)
+        y = self.position[1] + (time * self.velocity[1]) + (0.5 * time ** 2 * (F_1 + F_2) / self.mass)
+        z = self.position[2] + (time * self.velocity[2]) + (0.5 * time ** 2 * (F_1 + F_2) / self.mass)
         self.position = (x,y,z)
 
 # Create the universe
