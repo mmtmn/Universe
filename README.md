@@ -21,5 +21,8 @@ Here are a few ways that this code could be improved:
 
 # Update Universe version 2
 
-
 In this version of the code, I have defined a Universe class that contains the properties and laws of the universe. I have also defined a Particle class that represents the fundamental particles of the universe. I have then created an instance of the Universe class and printed its properties to verify that it has been created correctly.
+
+# Yodate Universe version 3
+
+Now you can see it in 3d and run it localy on your own browsers. Some bugs were fixed and some more work needs to be done, but this is a solid start!
