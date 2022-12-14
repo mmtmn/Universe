@@ -26,3 +26,9 @@ In this version of the code, I have defined a Universe class that contains the p
 # Update Universe version 3
 
 Now you can see it in 3d and run it localy on your own browsers. Some bugs were fixed and some more work needs to be done, but this is a solid start!
+
+# Update Universe
+
+Fixed particles sizes. 
+
+The radius of an electron, proton, and neutron can be found in various physics textbooks, or online sources. For example, the radius of an electron can be found to be approximately 10-15 femtometers (1 femtometer = 10-15 meters). The radius of a proton and neutron can be found to be approximately 0.87 fm and 1.15 fm respectively.
