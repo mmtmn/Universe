@@ -32,3 +32,15 @@ Now you can see it in 3d and run it localy on your own browsers. Some bugs were 
 Fixed particles sizes. 
 
 The radius of an electron, proton, and neutron can be found in various physics textbooks, or online sources. For example, the radius of an electron can be found to be approximately 10-15 femtometers (1 femtometer = 10-15 meters). The radius of a proton and neutron can be found to be approximately 0.87 fm and 1.15 fm respectively.
+
+Gravity doesn't seem to be working in the 3d library.
+
+There are a few issues that could be affecting the gravity in the 3d view of the universe.
+
+1. The gravity calculation in the Universe class is using the wrong equation. The equation should be: F = G * (m1 * m2) / (r**2).
+
+2. The gravity force is not being applied to the particles in the 3d view. To do this, we need to add a function to the Particle class that calculates the gravitational force between two particles and updates their velocities accordingly.
+
+3. The distance between the particles is not being updated as they move in the 3d view. To do this, we need to add a function to the Universe class that calculates the distance between the particles and updates their positions accordingly.
+
+4. The update_particles_positions() method in the Universe class is not taking into account the gravitational forces between the particles. To do this, we need to add a function to the Particle class that updates the particle's position based on the gravitational force between it and other particles.
