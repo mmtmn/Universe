@@ -68,9 +68,24 @@ universe = Universe()
 # Display the universe data
 universe.display_universe_data()
 
-# Update particles positions
-time = 10
-universe.update_particles_positions(time)
+# Setup 3d library
+from vpython import sphere, vector, color
 
-# Display particles positions
-universe.display_particles_positions()
+# Create the particles
+electron = sphere(pos=vector(*universe.electron.position), radius=0.5, color=color.red)
+proton = sphere(pos=vector(*universe.proton.position), radius=0.5, color=color.blue)
+neutron = sphere(pos=vector(*universe.neutron.position), radius=0.5, color=color.green)
+
+import time
+
+# Continuously loop
+while True:
+    # Update particles positions
+    universe.update_particles_positions(1)
+
+    # Update particles in 3d library
+    electron.pos = vector(*universe.electron.position)
+    proton.pos = vector(*universe.proton.position)
+    neutron.pos = vector(*universe.neutron.position)
+
+    time.sleep(0.01)
