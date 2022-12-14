@@ -1,7 +1,10 @@
-% Universe
+# Universe
+
+
 This code defines a universe by setting the values of several constants, such as the gravitational constant (G) and the speed of light (c), and by defining the fundamental particles of the universe (electron, proton, and neutron), along with their mass and charge. It also defines the laws of physics for this universe, such as the law of gravity and the law of electromagnetism, which can be used to calculate the gravitational and electromagnetic forces between two particles. Finally, the code creates a dictionary called universe that contains all of this information and prints it out.
 
 # Universe version 1
+
 Here are a few ways that this code could be improved:
 
    1. The code uses a global variable universe to store the properties of the universe. This could lead to naming conflicts if the code is part of a larger program that also uses the variable universe. Instead, the code could define a Universe class and store the properties of the universe as instance variables of that class. This would also make it easier to create multiple universes if needed.
@@ -15,6 +18,8 @@ Here are a few ways that this code could be improved:
 
    4. The code does not include any error-checking or validation of the input data. For example, if a user passes a negative value for the distance between two particles to the gravity or electromagnetism functions, the code will still calculate the force, but the result will not be physically meaningful. To prevent this, the code could include checks to ensure that the input data is valid, and raise an error if the data is not valid. This would make the code more robust and prevent it from producing incorrect results.
 
+
 # Update Universe version 2
+
 
 In this version of the code, I have defined a Universe class that contains the properties and laws of the universe. I have also defined a Particle class that represents the fundamental particles of the universe. I have then created an instance of the Universe class and printed its properties to verify that it has been created correctly.
